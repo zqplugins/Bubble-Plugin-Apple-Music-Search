@@ -1,0 +1,14 @@
+{
+    "categories": {
+        "0": "social network",
+        "1": "media"
+    },
+    "description": "Find Apple Music Tracks and Albums by Apple Music ID, ISRC or search query (supports advanced search). \n\nTo receive special offers and important updates please visit: https://zeroqo.de/updates\n\nNEED HELP BUILDING A CUSTOM APPLICATION?\nhttps://dev.zeroqode.com\n\nSUPERCHARGE YOUR APP WITH ZEROQODE PLUGINS\nhttps://zeroqode.com/plugins\n\nQUESTIONS OR NEED HELP?\nhttps://forum.zeroqode.com",
+    "image": "//meta-q.cdn.bubble.io/f1706934091414x676003456257283000/DALL%C2%B7E%202024-02-03%2006.21.13%20-%20Create%20a%20modern%2C%20minimalistic%203D%20icon%20inspired%20by%20the%20theme%20of%20music%20search.%20The%20icon%20should%20feature%20an%20abstract%20fruit%20shape%20with%20a%20bite%20taken%20out%2C%20ne.webp",
+    "instructions": "",
+    "license": "open_source",
+    "link": "https://zeroqode.com/plugins",
+    "name": "Apple Music Search",
+    "plugin_instructions": "IMPORTANT NOTE: Please read all of the steps since it involves a manual task that needs to be carried out once every few months to make sure the authorization keeps working.\n\nSTEP 1\n\nFirstly we need to generate an apple JWT. This is NOT a super straightforward process. You can read about all the steps here: https://developer.apple.com/documentation/applemusicapi/getting_keys_and_creating_tokens\n\nA better (easier & quicker) way to generate this JWT is using the scripts in this repository (shoutout to addisonwebb).\n\nhttps://github.com/addisonwebb/Apple-JWT-Generator\n\nSTEP 2\n\nClone the repository from the previous step and edit the main.py file: https://github.com/addisonwebb/Apple-JWT-Generator/blob/master/main.py\n\nEdit the line that contains the timestamp.\n\nFrom:\nexpiration_timestamp = issued_timestamp + 1800\n\nTo:\nexpiration_timestamp = issued_timestamp + 15777000\n\nThis puts the expiration of the token on 6 MONTHS. This means you need to update this token BEFORE it expires. In this case that is a bit less than once every 6 months. Feel free to change this expiration date, it's just a UNIX timestamp, but remember that 6 months is the maximum as described by Apple.\n\nSTEP 3\n\nRun the script in your terminal and copy the token. \n\nFormat the token into a new string. Please note the space between the words. Example:\n \nBearer eyXXXXXXXXXXXXXXXXXXXXX\n\nSTEP 4\n\nCopy this string and paste it into the 'Authorization' field in this plugin's settings.\n\nSTEP 5\n\nUse the plugin! In bubble you should now find the actions under 'Plugins' in any workflow.\n",
+    "sa_node_version": 18
+}
